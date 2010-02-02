@@ -77,6 +77,8 @@
 	
 	// jQuery.data(elem) no longer returns an ID,
 	// returns the data object instead.
+	var windowData = {};
+
 	jQuery.data = function( elem, name, data ) {
 		if ( elem.nodeName && jQuery.noData[elem.nodeName.toLowerCase()] ) {
 			return;
