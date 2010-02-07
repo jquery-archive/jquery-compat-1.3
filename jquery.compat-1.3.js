@@ -131,8 +131,7 @@
 			return jQuery( document );
 		}
 		
-		oldinit.apply( this, arguments );
-		return this;
+		return oldinit.apply( this, arguments );
 	};
 	
 	jQuery.fn.init.prototype = oldinit.prototype;
@@ -141,8 +140,10 @@
 	// it only selects on value now (which is much less ambiguous)
 	var oldval = jQuery.fn.val;
 	
-	jQuery.fn.val = function( val ) {
-		if ( val !== undefined ) {
+	jQuery.fn.val = function( value ) {
+		if ( value !== undefined ) {
+			var isFunction = jQuery.isFunction(value);
+
 			return this.each(function(i) {
 				var self = jQuery(this), val = value;
 
