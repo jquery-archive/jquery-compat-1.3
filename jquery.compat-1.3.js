@@ -77,7 +77,7 @@
 	
 	// jQuery.data(elem) no longer returns an ID,
 	// returns the data object instead.
-	var windowData = {};
+	var windowData = {}, uuid = 0;
 
 	jQuery.data = function( elem, name, data ) {
 		if ( elem.nodeName && jQuery.noData[elem.nodeName.toLowerCase()] ) {
@@ -97,7 +97,7 @@
 
 		// Compute a unique ID for the element
 		if ( !id ) { 
-			id = ++jQuery.uuid;
+			id = ++uuid;
 		}
 
 		// Avoid generating a new cache unless none exists and we
